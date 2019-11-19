@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './App.scss';
 
-function App() {
+const App = (props) => {
+  const [count, setCount] = useState(props.count)
+  const [text, setText] = useState(props.text) 
+  const increment = () => {
+     setCount(count + 1)
+  }
+  useEffect(() => console.log("useEffect rand"))
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>The Current {text || "Count"} is {count}</p>
+      <button onClick={increment} style={{margin:"10px"}}>+1</button>
+      <button onClick={() => setCount(count - 1)} disabled = {count === 0} style={{margin:"10px"}}>-1</button>
+      <input 
+       value={text}
+       onChange={(e) => setText(e.target.value)}
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+App.defaultProps = {
+  count: 0,
+  text: ""
+}
+
+export default App
+
+
+// state = {
+// count: 0
+// }
