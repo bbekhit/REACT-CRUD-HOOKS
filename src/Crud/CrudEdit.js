@@ -3,7 +3,7 @@ import CrudForm from "./CrudForm";
 import { connect } from "react-redux";
 import { editNote } from "../actions/crudActions";
 
-const CrudEdit = ({ note, editNote, history }) => {
+export const CrudEdit = ({ note, editNote, history }) => {
   const onSubmit = data => {
     let notesData = JSON.parse(localStorage.getItem("notes"));
     notesData = notesData.map(item =>
@@ -15,13 +15,13 @@ const CrudEdit = ({ note, editNote, history }) => {
   };
   return (
     <div>
-      <CrudForm note={note} onSubmit={data => onSubmit(data)} />
+      <CrudForm note={note} onSubmit={data => onSubmit(data)} id="edit" />
     </div>
   );
 };
 
 const mapStateToProps = (state, props) => ({
-  note: state.notes.find(item => item.id === props.match.params.id)
+  note: state.notes.find(item => item.id === props.match.params.id),
 });
 
 export default connect(mapStateToProps, { editNote })(CrudEdit);

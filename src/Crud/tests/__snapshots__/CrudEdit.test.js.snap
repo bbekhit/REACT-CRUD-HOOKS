@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Crud Add renders correctly 1`] = `
+<div>
+  <Connect(withRouter(CrudForm))
+    id="edit"
+    note={
+      Object {
+        "body": "Body-1",
+        "id": 1,
+        "title": "Title-1",
+      }
+    }
+    onSubmit={[Function]}
+  />
+</div>
+`;

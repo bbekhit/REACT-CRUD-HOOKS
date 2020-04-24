@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Note renders correctly 1`] = `
+<div>
+  <Connect(withRouter(CrudForm))
+    id="add"
+    onSubmit={[Function]}
+  />
+</div>
+`;

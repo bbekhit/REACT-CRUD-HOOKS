@@ -4,15 +4,15 @@ import { connect } from "react-redux";
 import { addNote } from "../actions/crudActions";
 import { withRouter } from "react-router-dom";
 
-const CrudForm = props => {
+export const CrudForm = props => {
   const [inputValue, setInputValue] = useState({
     title: props.note ? props.note.title : "",
-    body: props.note ? props.note.body : ""
+    body: props.note ? props.note.body : "",
   });
   const onChangeHandler = e => {
     setInputValue({
       ...inputValue,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -20,12 +20,12 @@ const CrudForm = props => {
     e.preventDefault();
     let noteData = {
       ...inputValue,
-      id: uuid()
+      id: uuid(),
     };
     props.onSubmit(noteData);
     setInputValue({
       title: "",
-      body: ""
+      body: "",
     });
   };
 

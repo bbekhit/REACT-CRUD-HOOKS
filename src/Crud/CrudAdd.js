@@ -3,13 +3,13 @@ import CrudForm from "./CrudForm";
 import { connect } from "react-redux";
 import { addNote } from "../actions/crudActions";
 
-const CrudAdd = props => {
+export const CrudAdd = props => {
   const onSubmit = data => {
     props.addNote(data);
   };
   return (
     <div>
-      <CrudForm onSubmit={data => onSubmit(data)} />
+      <CrudForm onSubmit={data => onSubmit(data)} id="add" />
     </div>
   );
 };
